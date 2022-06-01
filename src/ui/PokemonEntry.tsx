@@ -22,7 +22,7 @@ export interface PokemonEntryProps {
 
 const PokemonEntry = ({url}: PokemonEntryProps) => {
   const theme = useTheme()
-  const [isFavorite, setIsFavorite] = useStorage(`isFavorite-${url}`, false)
+  const [favorites, setFavorites] = useStorage<Array<string>>('favorites', [])
 
   const {data} = useSWR<Pokemon>(url, fetcher)
 
@@ -61,13 +61,13 @@ const PokemonEntry = ({url}: PokemonEntryProps) => {
         flex={1}
         icon={
           <Icon
-            name={isFavorite ? 'favorite' : 'favorite-outline'}
+            name={favorites.includes(url) ? 'favorite' : 'favorite-outline'}
             size={32}
             color={theme.colors.rose['500']}
           />
         }
         color={'emerald.500'}
-        onPress={() => setIsFavorite(!isFavorite)}
+        onPress={() => favorites.includes(url) ? setFavorites(favorites.filter(f => f !== url)) : setFavorites([...favorites, url])}
       />
     </HStack>
   )

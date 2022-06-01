@@ -1,0 +1,23 @@
+// Slides
+
+
+// Workshop
+1. Create TS Project
+2. Run app
+3. Adjust eslint and prettier settings
+4. Share Pokemon TS Types
+5. Introduce Pokemon API
+6. Create a stub component for pokemon entry
+7. Create a list without scrolling / Add SWR as a react dependency
+8. Create a list with scrolling
+9. Create a list with search
+10. Show last searched term to illustrate loss of state when app closes
+11. Install mmkv storage as a specific react native dependency
+12. Implement favorite mechanism
+13. Implement react navigation - oppose it to react-dom-router
+14. Add list as a screen
+15. Add favorites as a screen
+16. Add Icons
+17. Set up test env
+18. Write some simple tests
+19. Hint at how to use custom app icon
