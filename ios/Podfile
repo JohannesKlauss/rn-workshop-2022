@@ -19,6 +19,7 @@ target 'PokeStar' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+
   target 'PokeStarTests' do
     inherit! :complete
     # Pods for testing
@@ -35,3 +36,5 @@ target 'PokeStar' do
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
+
+pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'

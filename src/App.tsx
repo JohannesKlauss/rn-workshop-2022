@@ -1,21 +1,17 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
-import { Box, Button, NativeBaseProvider, View, VStack } from "native-base";
-import React, { useState } from "react";
-import { useStorage } from "./src/storage";
-import { NavigationContainer } from "@react-navigation/native";
+import React from 'react'
+import {AppState, AppStateStatus} from 'react-native'
+import {NativeBaseProvider} from 'native-base'
+import {NavigationContainer} from '@react-navigation/native'
 import {SWRConfig} from 'swr'
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AppState, AppStateStatus } from "react-native";
+import PokemonList from './ui/PokemonList'
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import Search from "./ui/Search";
+
+const inset = {
+  frame: {x: 0, y: 0, width: 0, height: 0},
+  insets: {top: 0, left: 0, right: 0, bottom: 0},
+}
 
 const Tab = createBottomTabNavigator()
 
@@ -61,7 +57,7 @@ const App = () => {
         },
       }}>
       <NavigationContainer>
-        <NativeBaseProvider>
+        <NativeBaseProvider initialWindowMetrics={inset}>
           <Tab.Navigator
             screenOptions={({route}) => ({
               tabBarIcon: ({color, size}) => {
@@ -78,8 +74,8 @@ const App = () => {
               tabBarActiveTintColor: 'tomato',
               tabBarInactiveTintColor: 'gray',
             })}>
-            <Tab.Screen name="PokéDex" component={() => <Box>PokeDex</Box>} />
-            <Tab.Screen name="Favorites" component={() => <Box>Favorited</Box>} />
+            <Tab.Screen name="PokéDex" component={PokemonList} />
+            <Tab.Screen name="Favorites" component={Search} />
           </Tab.Navigator>
         </NativeBaseProvider>
       </NavigationContainer>
